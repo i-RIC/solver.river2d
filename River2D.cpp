@@ -187,10 +187,11 @@ int main(int argc, char* argv[])
 		err = cg_goto(FID, BID, "Zone_t", ZID, "ZoneIterativeData_t", 1, "end");
 		//int idata[2];
 		//note made change below for iric v3.  cgsize_t was int
-		err = cg_array_write("FlowSolutionPointers", CGNS_ENUMV(Character), 2, idata, solpointers);
-		//	  err = cg_array_write("FlowSolutionPointers", CGNS_ENUMV(Character), 2, idata, sol_names);
-		cg_error_print();
+		//err = cg_array_write("FlowSolutionPointers", CGNS_ENUMV(Character), 2, idata, solpointers);
+		err = cg_array_write("FlowSolutionPointers", CGNS_ENUMV(Character), 2, idata, sol_names);
+		//cg_error_print();
 		free(sol_names);
+		free(solpointers);
 	}
 	cout << "************END OF SIMULATION*****************" << endl;
 	return 0;
