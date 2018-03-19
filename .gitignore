@@ -1,0 +1,11 @@
+.vs/
+River2D.VC.VC.opendb
+River2D.VC.db
+ipch/
+libs/cgnslib-3.2.1.7z
+libs/cgnslib-3.2.1/debug/bin/
+libs/cgnslib-3.2.1/debug/share/
+libs/cgnslib-3.2.1/release/bin/
+libs/cgnslib-3.2.1/release/share/
+libs/iriclib-139cd84.7z
+x64/
