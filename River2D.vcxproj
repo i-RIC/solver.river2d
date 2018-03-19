@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{38A4BDBF-CB22-49D4-95C8-182B77A80D19}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>River2D</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>libs\cgnslib-3.2.1\debug\include\.;libs\iriclib-139cd84\debug\include\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\rmcd\GitRepos\River2D\River2D\libs\cgnslib-3.2.1\debug\lib;C:\Users\rmcd\GitRepos\River2D\River2D\libs\iriclib-139cd84\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cgnsdll.lib;iriclib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\rmcd\GitRepos\River2D\River2D\libs\iriclib-139cd84\release\include;C:\Users\rmcd\GitRepos\River2D\River2D\libs\cgnslib-3.2.1\release\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\rmcd\GitRepos\River2D\River2D\libs\iriclib-139cd84\release\lib;C:\Users\rmcd\GitRepos\River2D\River2D\libs\cgnslib-3.2.1\release\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cgnsdll.lib;iriclib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\BCInterpLst.h" />
+    <ClInclude Include="src\BCInterpPt.h" />
+    <ClInclude Include="src\Element.h" />
+    <ClInclude Include="src\ElementMtx.h" />
+    <ClInclude Include="src\Fe_PS.h" />
+    <ClInclude Include="src\FlowBoundary.h" />
+    <ClInclude Include="src\Habitat.h" />
+    <ClInclude Include="src\HabitatTIN.h" />
+    <ClInclude Include="src\Interppt.h" />
+    <ClInclude Include="src\Intrplst.h" />
+    <ClInclude Include="src\Item.h" />
+    <ClInclude Include="src\Itemlist.h" />
+    <ClInclude Include="src\Node.h" />
+    <ClInclude Include="src\Outcdg2d.h" />
+    <ClInclude Include="src\PhiElementMtx.h" />
+    <ClInclude Include="src\Physics.h" />
+    <ClInclude Include="src\PsiElementMtx.h" />
+    <ClInclude Include="src\Quadrant.h" />
+    <ClInclude Include="src\Segment.h" />
+    <ClInclude Include="src\Shallow.h" />
+    <ClInclude Include="src\Solver.h" />
+    <ClInclude Include="src\Tin.h" />
+    <ClInclude Include="src\Triangle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="River2D.cpp" />
+    <ClCompile Include="src\BCInterpLst.cpp" />
+    <ClCompile Include="src\BCInterpPt.cpp" />
+    <ClCompile Include="src\Element.cpp" />
+    <ClCompile Include="src\ElementMtx.cpp" />
+    <ClCompile Include="src\Fecom.c" />
+    <ClCompile Include="src\Fecore_PS.c" />
+    <ClCompile Include="src\FEDUMWIN.c" />
+    <ClCompile Include="src\FEGAUSS.c" />
+    <ClCompile Include="src\Feinit.c" />
+    <ClCompile Include="src\Feio.c" />
+    <ClCompile Include="src\feio_hs_cgns.c" />
+    <ClCompile Include="src\feio_tecplot.c" />
+    <ClCompile Include="src\Femain.c" />
+    <ClCompile Include="src\FEMESH.c" />
+    <ClCompile Include="src\Femixed.c" />
+    <ClCompile Include="src\FESTUFF.c" />
+    <ClCompile Include="src\FESTUFF1.c" />
+    <ClCompile Include="src\FESTUFF2.c" />
+    <ClCompile Include="src\FESTUFF3.c" />
+    <ClCompile Include="src\FESTUFF4.c" />
+    <ClCompile Include="src\FESTUFF5.c" />
+    <ClCompile Include="src\Fetest.c" />
+    <ClCompile Include="src\FEUNSTR.c" />
+    <ClCompile Include="src\FEVEL.c" />
+    <ClCompile Include="src\FE_NUPF.c" />
+    <ClCompile Include="src\FlowBoundary.cpp" />
+    <ClCompile Include="src\Habitat.cpp" />
+    <ClCompile Include="src\HabitatTIN.cpp" />
+    <ClCompile Include="src\Interppt.cpp" />
+    <ClCompile Include="src\Intrplst.cpp" />
+    <ClCompile Include="src\Itemlist.cpp" />
+    <ClCompile Include="src\Node.cpp" />
+    <ClCompile Include="src\Outcdg2d.cpp" />
+    <ClCompile Include="src\PhiElementMtx.cpp" />
+    <ClCompile Include="src\PsiElementMtx.cpp" />
+    <ClCompile Include="src\Quadrant.cpp" />
+    <ClCompile Include="src\Segment.cpp" />
+    <ClCompile Include="src\Shallow.cpp" />
+    <ClCompile Include="src\Solver.cpp" />
+    <ClCompile Include="src\Tin.cpp" />
+    <ClCompile Include="src\Triangle.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

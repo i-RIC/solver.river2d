@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="River2DHeader">
+      <UniqueIdentifier>{424c95b6-588c-4383-9788-797a354f3ecd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="River2DSource">
+      <UniqueIdentifier>{dd28f78f-f5df-4e43-94ce-7e0a083920d8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\BCInterpLst.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BCInterpPt.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Element.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ElementMtx.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fe_PS.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FlowBoundary.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Habitat.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HabitatTIN.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interppt.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Intrplst.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Item.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Itemlist.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Node.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Outcdg2d.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PhiElementMtx.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PsiElementMtx.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Quadrant.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Segment.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shallow.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Solver.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tin.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Triangle.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="River2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FE_NUPF.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fecom.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fecore_PS.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FEDUMWIN.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FEGAUSS.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Feinit.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Feio.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\feio_hs_cgns.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\feio_tecplot.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Femain.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FEMESH.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Femixed.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FESTUFF.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FESTUFF1.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FESTUFF2.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FESTUFF3.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FESTUFF4.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FESTUFF5.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fetest.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FEUNSTR.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FEVEL.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BCInterpLst.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BCInterpPt.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Element.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ElementMtx.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FlowBoundary.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Habitat.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HabitatTIN.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interppt.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Intrplst.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Itemlist.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Node.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Outcdg2d.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhiElementMtx.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PsiElementMtx.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Quadrant.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Segment.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shallow.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Solver.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tin.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Triangle.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
