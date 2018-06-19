@@ -93,6 +93,9 @@
     <ClInclude Include="src\Triangle.h">
       <Filter>River2DHeader</Filter>
     </ClInclude>
+    <ClInclude Include="src\R2DSparseLib.h">
+      <Filter>River2DHeader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="River2D.cpp">
@@ -219,6 +222,12 @@
       <Filter>River2DSource</Filter>
     </ClCompile>
     <ClCompile Include="src\Triangle.cpp">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Feiter.c">
+      <Filter>River2DSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\R2DSparseLib.cpp">
       <Filter>River2DSource</Filter>
     </ClCompile>
   </ItemGroup>

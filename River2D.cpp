@@ -15,6 +15,7 @@
 
 extern "C" struct transient tvals; //call the tvals struct in the Fe files
 extern "C" int steady(int a, int b, double tol, double tMax, FILE* lfp, int i);///call the steady function in the Fe files
+extern "C" int steadynew(int a, int b, double tol, double tMax, FILE* lfp, int i, int m, int k, double gmrestol);///call the steady function in the Fe files
 extern "C" int set_ptou(int num);//calls the set_ptou in the Fe files (initializes the velocities?
 extern "C" void updateVelocities();
 extern "C" int assembleFlag;
@@ -31,6 +32,9 @@ int main(int argc, char* argv[])
 {
 	HabitatTIN *meshP;
 	int FID, error;
+	int solvType;
+	int m, k;
+	double gmrestol;
 	//if (argc != 2) {
 	//    fprintf (stderr, "open_cgns CGNSfile\n");
 	//    exit (1);
@@ -102,14 +106,15 @@ int main(int argc, char* argv[])
 	err = cg_iRIC_Read_Real("m_GoalSolChange", &tolerance);
 	err = cg_iRIC_Read_Integer("m_PlotInc", &WriteTimeStep);
 	err = cg_iRIC_Read_Real("m_FinalTime", &tvals.tfinal);
+	err = cg_iRIC_Read_Integer("m_SolverType", &solvType);
+	err = cg_iRIC_Read_Integer("m_NumStepsBfrRestart", &m);
+	err = cg_iRIC_Read_Integer("m_MaxNumIter", &k);
+	err = cg_iRIC_Read_Real("m_ConvergenceTol", &gmrestol);
+
 	int numIter = (tvals.tfinal - tvals.t / WriteTimeStep);
 	tstep = new double[numIter];
-	//namearray = new char*[numIter];
-	//for(int i = 0; i < numIter; i++) {
-	//	namearray[i] = new char[17];
-	//}
 
-	solpointers = (char*)malloc(sizeof(char) * numIter * 32);
+	solpointers = (char*)malloc(sizeof(char) * (numIter+1) * 32);
 	for (int j = 0; j <32 * numIter; j++)
 	{
 		solpointers[j] = ' ';
@@ -130,7 +135,12 @@ int main(int argc, char* argv[])
 			//i++;
 		{
 			tsnum = tsnum++;
-			err = steady(-1, 2, tolerance, dtMaximum, logFile, tsnum);
+			if (solvType == 1) {
+				err = steady(-1, 2, tolerance, dtMaximum, logFile, tsnum);
+			}
+			else {
+				err = steadynew(-1, 2, tolerance, dtMaximum, logFile, tsnum, m, k, gmrestol);
+			}
 			cout << endl << "Number of Iteration: " << tsnum << endl <<
 				"Current Time: " << tvals.t << endl <<
 				"Time Difference: " << tvals.dt << endl;
@@ -144,7 +154,6 @@ int main(int argc, char* argv[])
 		sprintf(buffer, "FlowSolution%d", itcount);
 		err = cg_sol_write(FID, BID, ZID, buffer, Vertex, &SolID);
 
-		//strcpy(namearray[itcount-1], buffer);
 		tstep[SolID - 1] = tvals.t;
 
 		err = cg_biter_write(FID, BID, "BaseIterativeData", SolID);
@@ -164,7 +173,6 @@ int main(int argc, char* argv[])
 		for (int j = 0; j < idata[0] * idata[1]; j++)
 		{
 			sol_names[j] = ' ';
-			solpointers[j] = ' ';
 		}
 		for (int si = 0; si < SolID; si++) {
 			sprintf(solname, "FlowSolution%d", si + 1);
@@ -172,28 +180,17 @@ int main(int argc, char* argv[])
 			strncpy(sol_names + si * 32, solname, namelen);
 		}
 
-		sprintf(solname, "FlowSolution%d", SolID);
-		namelen = strlen(solname);
-		strncpy(solpointers + 32 * (SolID - 1), solname, namelen);
-		memset(solpointers + 32 * (SolID - 1) + namelen, ' ', 32 - namelen);
-
-		strcpy(sn[SolID - 1], solname);
-
-
-
-		//output(1,OutputFileName);
-		//output(itcount);
 		cgns_output(FID, SolID, itcount);
 		err = cg_goto(FID, BID, "Zone_t", ZID, "ZoneIterativeData_t", 1, "end");
-		//int idata[2];
-		//note made change below for iric v3.  cgsize_t was int
-		//err = cg_array_write("FlowSolutionPointers", CGNS_ENUMV(Character), 2, idata, solpointers);
+		
 		err = cg_array_write("FlowSolutionPointers", CGNS_ENUMV(Character), 2, idata, sol_names);
+		
 		//cg_error_print();
 		free(sol_names);
-		free(solpointers);
 	}
 	cout << "************END OF SIMULATION*****************" << endl;
+	err = cg_close(FID);
+	//cg_error_print();
 	return 0;
 }
 

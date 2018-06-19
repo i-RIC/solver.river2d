@@ -790,8 +790,8 @@ int				FID, SolID, nin;
 			np = np->nextnp;
 		}
     
-		err = cg_field_write(FID,BID,ZID,SolID,
-		 RealDouble,"Elevation",elevation,&SolIndex);
+		//err = cg_field_write(FID,BID,ZID,SolID,
+		// RealDouble,"Elevation",elevation,&SolIndex);
 		err = cg_field_write(FID,BID,ZID,SolID,
 		 RealDouble,"WaterSurfaceElevation",wse,&SolIndex);
 		err = cg_field_write(FID,BID,ZID,SolID,
@@ -804,7 +804,8 @@ int				FID, SolID, nin;
 		 RealDouble,"VelocityY",vy,&SolIndex);
 		err = cg_field_write(FID,BID,ZID,SolID,
 		 RealDouble,"Chezy",chezy,&SolIndex);
-
+		err = cg_field_write(FID,BID,ZID,SolID,
+		 RealDouble,"Elevation",elevation,&SolIndex);
 		free(elevation);
 		free(wse);
 		free(depth);
