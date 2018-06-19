@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SolverDefinition
+	xmlns="www.iric.net/SolverDefinition/1.0"
+	name="River2D" caption="River2D" version="1.0" copyright="Peter Steffler"
+	release="2011.02.15" homepage="http://www.river2d.ualberta.ca/"
+	executable="River2D.exe"
+	iterationtype="time"
+	gridtype="unstructured2d"
+	>
+	<CalculationCondition>
+    <Tab name="calculationtype" caption="Calculation Type">
+      <Content>
+        <Items>
+          <Item name="m_CalcType" caption="Calculation Type">
+            <Definition conditionType="constant" valueType="integer" option="true"
+							default="0">
+              <Enumerations>
+                <Enumeration value="0" caption="Steady" />
+                <!--<Enumeration value="1" caption="Unsteady" />-->
+              </Enumerations>
+            </Definition>
+          </Item>
+          <Item name="m_StartTime" caption="Start Time">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default="0">
+            </Definition>
+          </Item>
+          <Item name="m_FinalTime" caption="Final Time">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default="1000">
+           </Definition>
+          </Item>
+          <Item name="m_InitDeltaT" caption="Initial Time Increment">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default="1">
+              <Dependency>
+                <Condition type="isEqual" target="m_CalcType" value="0" />
+                <Action type="enable" />
+              </Dependency>
+            </Definition>
+          </Item>
+          <Item name="m_MaxTimedt" caption="Max Time Increment">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default="10">
+              <Dependency>
+                <Condition type="isEqual" target="m_CalcType" value="0" />
+                <Action type="enable" />
+              </Dependency>
+            </Definition>
+          </Item>
+          <Item name="m_GoalSolChange" caption="Goal Solution Change">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default=".1">
+              <Dependency>
+                <Condition type="isEqual" target="m_CalcType" value="0" />
+                <Action type="enable" />
+              </Dependency>
+            </Definition>
+          </Item>
+          <Item name="m_PlotInc" caption="Plot Increment">
+            <Definition conditionType="constant" valueType="integer" option="false"
+							default="1">
+            </Definition>
+          </Item>
+          <Item name="m_UnsteadyMaxNumIter" caption="Maximum Number of Iterations per Delta-Time">
+            <Definition conditionType="constant" valueType="integer" option="false"
+							default="10">
+              <Dependency>
+                <Condition type="isEqual" target="m_CalcType" value="1" />
+                <Action type="enable" />
+              </Dependency>
+            </Definition>
+          </Item>
+          <Item name="m_UnsteadyImplicitness" caption="Implicitness">
+            <Definition conditionType="constant" valueType="integer" option="false"
+							default="1">
+              <Dependency>
+                <Condition type="isEqual" target="m_CalcType" value="1" />
+                <Action type="enable" />
+              </Dependency>
+            </Definition>
+          </Item>
+        </Items>
+      </Content>
+    </Tab>
+    <Tab name="solveroptions" caption="Solver Options">
+			<Content>
+				<Items>
+					<Item name="m_SolverType" caption="Solver Type">
+						<Definition conditionType="constant" valueType="integer" option="true"
+							default="0">
+							<Enumerations>
+								<Enumeration value="0" caption="Direct (Active Zone)" />
+								<Enumeration value="1" caption="Iterative (GMRES(m))" />
+							</Enumerations>
+						</Definition>
+					</Item>
+					<Item name="m_NumStepsBfrRestart" caption="Number of Steps Before Restart">
+						<Definition conditionType="constant" valueType="integer" option="false"
+							default="10">
+						<Dependency>
+							<Condition type="isEqual" target="m_SolverType" value="1" />
+							<Action type="enable" />
+						</Dependency>
+						</Definition>
+					</Item>
+					<Item name="m_MaxNumIter" caption="Maximum Number of Iterations">
+						<Definition conditionType="constant" valueType="integer" option="false"
+							default="10">
+            <Dependency>
+              <Condition type="isEqual" target="m_SolverType" value="1" />
+              <Action type="enable" />
+            </Dependency>
+          </Definition>
+					</Item>
+					<Item name="m_ConvergenceTol" caption="Convergence Tolerance">
+						<Definition conditionType="constant" valueType="real" option="false"
+							default="0.01">
+            <Dependency>
+              <Condition type="isEqual" target="m_SolverType" value="1" />
+              <Action type="enable" />
+            </Dependency>
+            </Definition>
+					</Item>
+          <Item name="m_JacobianType" caption="Jacobian Type">
+            <Definition conditionType="constant" valueType="integer" option="true"
+							default="1">
+              <Enumerations>
+                <Enumeration value="0" caption="Analytical" />
+                <Enumeration value="1" caption="Numerical" />
+              </Enumerations>
+            </Definition>
+          </Item>
+				</Items>
+			</Content>
+		</Tab>
+		<Tab name="flowoptions" caption="Flow Options">
+			<Content>
+				<Items>
+          <Item name="UW" caption="Upwind Coefficient (0.0-1.0)">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default=".5">
+            </Definition>
+          </Item>
+          <Item name="tvals_gwH" caption="Maximum Depth to Groundwater Flow">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default=".01">
+            </Definition>
+          </Item>
+          <Item name="tvals_T" caption="Groundwater Transmissivity">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default=".1">
+            </Definition>
+          </Item>
+          <Item name="tvals_S" caption="Groundwater Storativity">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default="1">
+            </Definition>
+          </Item>
+          <Item name="epsilon" caption="Eddy Viscosity Coefficient - epsilon1">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default="0.">
+            </Definition>
+          </Item>
+          <Item name="epsilon3" caption="Eddy Viscosity Coefficient - epsilon3">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default="0.">
+            </Definition>
+          </Item>
+        </Items>
+			</Content>
+		</Tab>
+		<Tab name="initialConditions" caption="Initial Conditions">
+			<Content>
+				<Items>
+          <Item name="initType" caption="Initial Condition">
+            <Definition conditionType="constant" valueType="integer" option="true"
+							default="0">
+              <Enumerations>
+                <Enumeration value="0" caption="New" />
+                <Enumeration value="1" caption="Use existing Solution" />
+              </Enumerations>
+            </Definition>
+          </Item>
+          <Item name="hotStartFile" caption="Hot Start File">
+            <Definition conditionType="constant" valueType="filename" option="false"
+							default="file.cgn">
+              <Dependency>
+                <Condition type="isEqual" target="initType" value="1" />
+                <Action type="enable" />
+              </Dependency>
+            </Definition>
+          </Item>
+          <Item name="m_UpstreamWSE" caption="Upstream Water Surface Elevation">
+            <Definition conditionType="constant" valueType="real" option="false"
+							default="1000.">
+              <Dependency>
+                <Condition type="isEqual" target="initType" value="0" />
+                <Action type="enable" />
+              </Dependency>
+            </Definition>
+          </Item>
+        </Items>
+			</Content>
+		</Tab>
+	</CalculationCondition>
+	<GridRelatedCondition>
+		<Item name="elevation" caption="Elevation">
+			<Definition position="node" valueType="real" default="max"/>
+		</Item>
+		<Item name="roughness" caption="Roughness">
+			<Definition position="node" valueType="real" default="0.003" option="false"/>
+		</Item>
+	</GridRelatedCondition>
+  <BoundaryCondition name="inflowCondition" caption="Inflow Condition" position="node">
+    <Item name="Type" caption="Type">
+      <Definition valueType="integer" default="0" >
+        <Enumeration value="0" caption="Fixed Discharge" />
+        <!--<Enumeration value="1" caption="Time Varying Discharage" />-->
+      </Definition>
+    </Item>
+    <Item name="fixedDischarge" caption="Fixed Discharge">
+      <Definition position="node" valueType="real" default="1.0" option="false"/>
+      <Condition type="isEqual" target="Type" value="0"/>
+    </Item>
+    <Item name="timevaryingdischrage" caption="Time Varying Discharage">
+      <Definition conditionType="functional">
+        <Parameter valueType="real" caption="Time(s)"/>
+        <Value valueType="real" caption="Discharge(m3/s)"/>
+        <Condition type="isEqual" target="Type" value="1"/>
+      </Definition>
+    </Item>
+  </BoundaryCondition>
+  <BoundaryCondition name="OutflowCondition" caption="Outflow Condition" position="node">
+    <Item name="Type" caption="Type">
+      <Definition valueType="integer" default="0" >
+        <Enumeration value="0" caption="Fixed Elevation" />
+        <!--<Enumeration value="1" caption="Time Varying Elevation" />-->
+        <Enumeration value="2" caption="Stage-Total Discharge Relationship (Rating Curve)" />
+        <Enumeration value="3" caption="Depth-Unit Discharge Relationship q = Kh^m" />
+      </Definition>
+    </Item>
+    <Item name="fixedElevation" caption="Fixed Elevation (m)">
+      <Definition position="node" valueType="real" default="1.0" option="false"/>
+      <Condition type="isEqual" target="Type" value="0"/>
+      <Action type="enable" />
+    </Item>
+    <Item name="timevaryingelevation" caption="Time Varying Elevation">
+      <Definition conditionType="functional">
+        <Parameter valueType="real" caption="Time(s)"/>
+        <Value valueType="real" caption="Water level(m)"/>
+        <Condition type="isEqual" target="Type" value="1"/>
+        <Action type="enable" />
+      </Definition>
+    </Item>
+    <Item name="stagedischarge" caption="Stage-Total Discharge Relationship (Rating Curve)">
+      <Definition conditionType="functional">
+        <Parameter valueType="real" caption="Time"/>
+        <Value valueType="real" caption="Water level(m)"/>
+        <Condition type="isEqual" target="Type" value="2"/>
+        <Action type="enable" />
+      </Definition>
+    </Item>
+    <Item name="depthdischarge_k" caption="Depth-Unit Discharge K">
+      <Definition position="node" valueType="real" default="1.0" option="false"/>
+      <Condition type="isEqual" target="Type" value="3"/>
+      <Action type="enable" />
+    </Item>
+    <Item name="depthdischarge_m" caption="Depth-Unit Discharge m">
+      <Definition position="node" valueType="real" default="0.5" option="false"/>
+      <Condition type="isEqual" target="Type" value="3"/>
+      <Action type="enable" />
+    </Item>
+  </BoundaryCondition>
+</SolverDefinition>
