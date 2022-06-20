@@ -1,4 +1,4 @@
-#CONSOLE APPLICATION : River2D Project Overview
+# CONSOLE APPLICATION : River2D Project Overview
 AppWizard has created this River2D application for you.
 
 This file contains a summary of what you will find in each of the files that
