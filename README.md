@@ -1,7 +1,7 @@
 # Overview
 River2D is an unsteady two-dimensional depth averaged finite element hydrodynamic model written by Professor Peter Steffler of the University of Alberta. This model is very good for certain kinds of complex domains that cannot be well treated with finite difference models. River2d has been customized for fish habitat evaluation studies and used extensively for that purpose all around the world. The following URL provides additional information about River2d: http://www.river2d.ualberta.ca/ .
 
-(Original Document)[chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.river2d.ca/Downloads/documentation/River2D.pdf]
+[Original Document](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.river2d.ca/Downloads/documentation/River2D.pdf)
 
 
 # CONSOLE APPLICATION : River2D Project Overview
